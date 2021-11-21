@@ -1,0 +1,26 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model NewMessage {
+  id            String @id @default(uuid())
+  message       String
+  title         String
+  urlImg        String
+  created_at    DateTime @default(now())
+
+  @@map("newmessage")
+}
+
+model Users {
+  id        String @id @default(uuid())
+  name      String
+  email     String
+
+  @@map("user")
+}
